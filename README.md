@@ -100,8 +100,13 @@ and now rebuild the project:
 $ npm run build
 ```
 
-You'll now have an updated set of typescript types in your project and it will include your new custom types.  That's going to make it easier for you to use the previous event, which has been typed as `any`.
+You'll now have an updated set of typescript types in your project and it will include your new custom types.  That's going to make it easier for you to use the previous event, which had previously been typed as `any`.  Your `OnEvent` can now become `OnEvent<Deployed.CustomDeployment>` and more importantly, your editor will help you walk through the data structure when you're handling it!
 
+![tooltip](docs/tooltips.png?raw=true "tooltips")
+
+### Side Effects
+
+Custom events will often represent side effects that help you understand whether or not a Goal was fulfilled.
 
 [deployment.graphql]: https://github.com/atomist-blogs/sdm-custom-event-demo/blob/master/lib/graphql/ingester/deployment.graphql
 [handler]: https://github.com/atomist-blogs/sdm-custom-event-demo/blob/master/lib/machine/handler.ts#L5
