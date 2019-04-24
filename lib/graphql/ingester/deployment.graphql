@@ -1,0 +1,25 @@
+# note that Deployment is a reserved type name!
+type CustomDeployment @rootType {
+  sha: String! @compositeId
+  branch: String! @compositeId
+  target: String! @compositeId
+
+  status: CustomDeploymentStatus!
+  start: Int!
+  end: Int!
+
+  push: Push
+    @linkTo(
+      queryName: "pushBySha"
+      variables: [
+        { name: "afterSha", path: "$.sha" }
+        { name: "branchName", path: "$.branch" }
+      ]
+    )
+
+}
+
+enum CustomDeploymentStatus {
+  success,
+  failure
+}

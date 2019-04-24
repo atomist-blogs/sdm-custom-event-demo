@@ -1,0 +1,15 @@
+subscription deployed {
+    CustomDeployment {
+        sha
+        branch
+        target
+        status
+        start
+        end
+        push {
+            after {
+                sha
+            }
+        }
+    }
+}
