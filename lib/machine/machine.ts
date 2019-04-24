@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { GraphQL } from "@atomist/automation-client";
 import {
     SoftwareDeliveryMachine,
     SoftwareDeliveryMachineConfiguration,
@@ -21,7 +22,6 @@ import {
 import {
     createSoftwareDeliveryMachine,
 } from "@atomist/sdm-core";
-import { GraphQL } from "@atomist/automation-client";
 import { detectDeployment } from "./handler";
 
 /**
@@ -43,7 +43,7 @@ export function machine(
     sdm.addEvent({
         name: "deployed",
         subscription: GraphQL.subscription("deployed"),
-        listener: detectDeployment()
+        listener: detectDeployment(),
     });
 
     return sdm;
