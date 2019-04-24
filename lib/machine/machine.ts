@@ -38,7 +38,7 @@ export function machine(
         configuration,
     });
 
-    sdm.addIngester(GraphQL.ingester("deployment"));
+    sdm.addIngester(GraphQL.ingester("CustomDeployment"));
 
     sdm.addEvent({
         name: "deployed",
